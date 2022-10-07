@@ -7,12 +7,10 @@ const port = 3000;
 
 // GLOBAL VARIABLES
 const WEBSOCKET_HOST = "ws://demo.sewio.net";
-const PATH_TO_STORE_DATA = "./output.txt";
 const API_KEY = "17254faec6a60f58458308763";
 
 // LIBS
 const ws = require("ws"); // websockets
-const fs = require("fs"); // file system
 
 // LOGIC
 const socket = new ws(WEBSOCKET_HOST);
@@ -34,7 +32,6 @@ socket.on("open", () => {
 
 socket.on("message", message => {
     showData(message);
-    //storeToFile(message);
 });
 
 function sendSubscribeMessage() {
